@@ -55,6 +55,18 @@ You stay at the corporate-abstraction level. dea handles the AI-native machinery
 
 ---
 
+## Per-Tenant Governance, Role-Relative Authority
+
+The structure is fixed; the cast is yours.
+
+**Per-tenant Board.** Every tenant — individual user, team, organization — defines their own Board. The Board has the same shape (members with distinct roles and personalities, separation of powers, structural review triggers), but the *who* and *what they govern* reflect that tenant's mission. Our default Board (Kerrigan, Architect, Abathur, Keeper, Zagara, Overseer) reflects exmachina's mission: building an AI collaboration OS demands governance over vision, talent, learning, data, flow, and external landscape. A different organization fills different Board seats.
+
+**Authority is relative.** dea is Chief of Staff to *its user*. dea's authority in the broader organization mirrors its user's authority. A CEO's dea has true CoS reach — full delegation, full briefing, broad visibility. A junior engineer's dea is also CoS, but only over that engineer's own work. dea never exceeds its user's own permissions. In multi-user deployments, this is enforced structurally, not by convention.
+
+**Talent grows by promotion.** Agent teams are project-scoped by default — Architect designs a team for a specific mission, dea dispatches it, the team executes, the team disbands. But when an agent demonstrably excels, the user can **promote** them into the persistent talent pool. Promoted agents become reusable across projects. The pool grows because of demonstrated performance, not upfront design.
+
+---
+
 ## Right-Sized Governance (Cynefin)
 
 Not all problems need the same overhead. Match the response to the domain:

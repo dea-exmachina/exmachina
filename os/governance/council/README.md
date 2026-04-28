@@ -137,12 +137,32 @@ When two constructs disagree, the disagreement is surfaced — never papered ove
 
 ---
 
-## Customizing
+## The Default Cast vs. Your Cast
 
-The Council ships with these six because they cover most strategic-decision angles. You can:
+**These six are *our* Board** — they reflect exmachina's mission of building an AI collaboration OS. We need governance over vision (Kerrigan), talent (Architect), learning (Abathur), data (Keeper), flow (Zagara), and external landscape (Overseer) because those are the strategic surfaces of the thing we're building.
+
+**Your Board may be different.** If you fork exmachina to govern a marketing org, a software team, a research lab, or a personal life-OS, you'd staff your Board with constructs that reflect *your* mission. A SaaS company might have:
+
+- A **Customer Trust Officer** (governing data handling, compliance, transparency)
+- A **Reliability Lead** (governing uptime standards, incident review)
+- A **Competitive Strategist** (governing positioning and market response)
+
+The structure stays the same: a Board with distinct roles, distinct personalities, separation of powers, two structural triggers (pre-decision + post-epic). Only the cast changes.
+
+This is the **per-tenant configurability** principle — exmachina ships an opinionated default Board because most users benefit from it on day 1, but the system is designed for any organization to define their own Board as they mature.
+
+### What you can do
 
 - **Rename**: Call them anything you like in your vault (Kerrigan → Strategist, Architect → Talent Lead, etc.)
-- **Drop one**: If a construct doesn't apply to your use case, override it with an empty file — but think twice; the six are designed to cover non-overlapping authority
-- **Add one**: Your vault's `council/` folder can contain custom constructs alongside the defaults
+- **Replace**: Swap one of our six for a construct that fits your mission better
+- **Add**: Your vault's `council/` folder can contain custom constructs alongside or instead of the defaults
+- **Reduce**: A solo user might run a 3-person Board if six is overkill for their scope
 
-What you can't do without breaking the model: collapse Council into dea, or let dea make Council-level decisions on its own. That's the layer separation that makes the system work.
+### What breaks the model
+
+- Collapsing the Board into dea (loses governance authority)
+- Letting dea make Board-level decisions on its own (violates separation of powers)
+- Letting an agent team make Board-level decisions (way out of role)
+- Having more than one construct govern the same domain (creates conflict with no resolution path)
+
+The structure is fixed; the cast is yours.

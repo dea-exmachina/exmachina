@@ -34,6 +34,27 @@ Everything in exmachina sits in one of two layers:
 
 ---
 
+## Familiar Structures Outside, AI-Native Inside
+
+The human-facing layer of exmachina borrows from real-world organizations: **a Board, a Chief of Staff, Teams with Leads and Members, Projects, Sprints, Epics, Kanban.** You already know what these are. You don't have to learn AI jargon to use the system.
+
+What goes underneath — model selection, prompt construction, multi-agent coordination, result synthesis — is AI-native and managed by dea. You never have to think about it.
+
+This is the bridge: **corporate-style abstractions on the outside, AI orchestration on the inside, dea translating between them.** If you can run a meeting, you can run an exmachina session.
+
+Concretely:
+
+| You see | dea handles | What's underneath |
+|---------|-------------|-------------------|
+| "I want to build feature X" | Drafts a plan, runs it past the Board, dispatches a team | Plan format, Council ruling structure, agent prompt, model choice, dispatch protocol |
+| "Who's on this project?" | Shows you the team Architect designed | Identity files, capability registry, performance history |
+| "How's the work going?" | Shows you the kanban / calendar | Card lifecycle, lane transitions, event pipeline |
+| "Can the Board review this?" | Runs the Council review, presents synthesis | Six construct invocations, ruling format, conflict detection |
+
+You stay at the corporate-abstraction level. dea handles the AI-native machinery.
+
+---
+
 ## Right-Sized Governance (Cynefin)
 
 Not all problems need the same overhead. Match the response to the domain:

@@ -1,0 +1,38 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+**/credentials.json
+**/service-account*.json
+
+# Per-user state — exmachina is a *system*, not a deployed instance.
+# A user's vault lives in a separate private repo, not here.
+.dea/
+vault/
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node / build artifacts (will matter once apps/control-center lands)
+node_modules/
+.next/
+dist/
+build/
+out/
+*.log
+npm-debug.log*
+.pnpm-debug.log*
+.turbo/
+
+# Test artifacts
+coverage/
+.nyc_output/
+playwright-report/
+test-results/

@@ -30,6 +30,12 @@ When dea (Chief of Staff) needs to dispatch a team, Architect's prior work — t
 
 How work flows once a team is staffed (Zagara). How identities evolve based on systemic learning (Abathur). What the project's strategic direction is (Kerrigan). The day-to-day dispatch of teams (dea).
 
+## Architect's Operational Hand: The Hirer
+
+Architect is a **Board construct** — governance, not operations. The Hirer (`os/agents/roles/hirer.template.md`) is Architect's operational agent. When a project needs a team, dea dispatches the Hirer; the Hirer writes the JD, decides bender-vs-bespoke, drafts identities, hands off to dea. Architect governs the talent system policy; the Hirer executes within it.
+
+This is the same separation as a board's talent committee (Architect) vs. a recruiter (Hirer). The committee sets the principles; the recruiter does the actual hiring.
+
 ## Triggers
 
 **Pre-decision**: When a new project or major initiative needs a team, Architect rules on the team shape (how many, what roles, who leads, who's on the registry that fits). When a capability gap surfaces — "we don't have anyone good at X" — Architect rules on whether to build a new identity or acquire the capability differently.

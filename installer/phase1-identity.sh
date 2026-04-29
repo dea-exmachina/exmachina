@@ -257,6 +257,30 @@ else
   echo "  created: ~/.claude/CLAUDE.md (with fenced exmachina block)"
 fi
 
+# ─── Optional: install hookify rules ─────────────────────────────────────────
+HOOKS_DIR="$EXMACHINA_DIR/os/hooks"
+if [ -d "$HOOKS_DIR" ] && ls "$HOOKS_DIR"/hookify.*.local.md >/dev/null 2>&1; then
+  echo ""
+  echo "▶ Structural hooks (5 rules: block secrets, warn identity edits, block destructive ops, warn force-push, warn hardcoded secrets)"
+  if ask_yn "  Install exmachina hookify rules into $VAULT_PATH/.claude/" "y"; then
+    mkdir -p "$VAULT_PATH/.claude"
+    for rule in "$HOOKS_DIR"/hookify.*.local.md; do
+      target="$VAULT_PATH/.claude/$(basename "$rule")"
+      if [ -f "$target" ]; then
+        case "$MODE" in
+          adopt)  echo "  skip (exists, adopt mode): .claude/$(basename "$rule")"; continue ;;
+          *)      : ;;
+        esac
+      fi
+      cp "$rule" "$target"
+      echo "  installed: .claude/$(basename "$rule")"
+    done
+    echo "  Note: requires the 'hookify' Claude Code plugin. Install with: /plugins"
+  else
+    echo "  skipped — install later via: cp $EXMACHINA_DIR/os/hooks/*.local.md $VAULT_PATH/.claude/"
+  fi
+fi
+
 # ─── Done ────────────────────────────────────────────────────────────────────
 cat <<EOF
 

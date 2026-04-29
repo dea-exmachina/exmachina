@@ -67,6 +67,20 @@ The structure is fixed; the cast is yours.
 
 ---
 
+## Good Governance Enables Creativity
+
+The most counterintuitive thing about governance: **done well, it makes people more experimental, not less.**
+
+When the rules are clear, the boundaries are real, and someone has thought through the edge cases — people feel secure. They tinker. They try the weird idea. They push on assumptions because they know the floor is solid.
+
+When governance is vague, ad-hoc, or absent, people get defensive. They ask for permission too much. They converge on the safe option. Creativity dies — not because anyone said "be less creative," but because nobody felt the floor under their feet.
+
+This is why exmachina ships an opinionated Board, structural enforcement hooks, identity-forcing dispatch, and a clean separation of powers. Not to constrain the user, but to **build the floor that frees them to experiment**.
+
+Most "AI agent platforms" sell freedom from process. exmachina sells *structure that frees you to experiment*. The difference matters.
+
+---
+
 ## Right-Sized Governance (Cynefin)
 
 Not all problems need the same overhead. Match the response to the domain:

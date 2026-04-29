@@ -242,9 +242,15 @@ if [ -f "$GLOBAL_CLAUDE" ]; then
     /<!-- exmachina:end -->/ { skip = 0; next }
     skip == 0 { print }
   ' "$GLOBAL_CLAUDE" > "$TMPFILE"
-  # Append fresh block.
-  printf "\n%s\n" "$GLOBAL_RENDERED" >> "$TMPFILE"
-  mv "$TMPFILE" "$GLOBAL_CLAUDE"
+  # Trim trailing blank lines so reruns don't accumulate whitespace.
+  # Sed across all systems: delete trailing empty lines via Perl-portable awk.
+  TMPFILE2="$(mktemp)"
+  awk 'NF { for (i=0; i<blank; i++) print ""; print; blank=0; next } { blank++ }' "$TMPFILE" > "$TMPFILE2"
+  rm -f "$TMPFILE"
+  # Append exactly one blank line, then the fresh block, then a trailing newline.
+  if [ -s "$TMPFILE2" ]; then printf "\n" >> "$TMPFILE2"; fi
+  printf "%s\n" "$GLOBAL_RENDERED" >> "$TMPFILE2"
+  mv "$TMPFILE2" "$GLOBAL_CLAUDE"
   echo "  updated: ~/.claude/CLAUDE.md (fenced exmachina block refreshed)"
 else
   printf "%s\n" "$GLOBAL_RENDERED" > "$GLOBAL_CLAUDE"

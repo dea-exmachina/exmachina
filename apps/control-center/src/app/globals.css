@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* ─── Terminal Atelier — PRIMARY default ─── */
+:root {
+  --cc-bg:         #060911;
+  --cc-surface:    #0D1219;
+  --cc-surface2:   #131C27;
+  --cc-text:       #E8D5A8;
+  --cc-text-dim:   #4E5A6A;
+  --cc-accent:     #D4840A;
+  --cc-accent-dim: #7A4A08;
+  --cc-border:     #1C2535;
+  --cc-green:      #3DAA5C;
+  --cc-yellow:     #C87A10;
+  --cc-red:        #B34040;
+  --cc-gray:       #3A4455;
+  --cc-font-ui:    var(--font-geist), sans-serif;
+  --cc-font-data:  var(--font-jetbrains-mono), monospace;
+  --cc-radius:     4px;
+  --cc-sidebar-w:  228px;
+}
+
+/* ─── Terminal Command ─── */
+[data-theme="terminal"] {
+  --cc-bg:         #060911;
+  --cc-surface:    #0C1117;
+  --cc-surface2:   #111823;
+  --cc-text:       #E8D5A8;
+  --cc-text-dim:   #4E5A6A;
+  --cc-accent:     #D4840A;
+  --cc-accent-dim: #7A4A08;
+  --cc-border:     #1A2030;
+  --cc-green:      #3DAA5C;
+  --cc-yellow:     #D4840A;
+  --cc-red:        #B34040;
+  --cc-gray:       #3A4455;
+  --cc-radius:     2px;
+  --cc-sidebar-w:  216px;
+}
+
+/* ─── Refined Professional ─── */
+[data-theme="refined"] {
+  --cc-bg:         #F5F0E8;
+  --cc-surface:    #FFFFFF;
+  --cc-surface2:   #F0EBE0;
+  --cc-text:       #1A1714;
+  --cc-text-dim:   #7A7068;
+  --cc-accent:     #1C3A5E;
+  --cc-accent-dim: #8BA8C8;
+  --cc-border:     #DDD5C8;
+  --cc-green:      #166534;
+  --cc-yellow:     #92400E;
+  --cc-red:        #991B1B;
+  --cc-gray:       #9CA3AF;
+  --cc-radius:     6px;
+  --cc-sidebar-w:  220px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--cc-bg);
+  color: var(--cc-text);
+  font-family: var(--cc-font-ui);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+}

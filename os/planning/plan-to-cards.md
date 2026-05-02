@@ -116,3 +116,20 @@ Move 5             : dea presents breakdown; George ack's; dispatch begins on th
 ```
 
 This is exactly what was done at v0.2.1 kickoff. The protocol works because it's been used.
+
+---
+
+## Flywheel Extension (v0.2.2+)
+
+`dea-ingest-plan` is the programmatic execution of this protocol. It reads a `council-approved` plan.md and runs all 5 moves in a single Supabase transaction via `ingest_plan()`.
+
+**Schema correction (2026-05-01)**: The original flywheel design doc showed epics wrapping sprints in plan.md. This was corrected — the canonical plan.md schema uses **sprint → epic → card** heading hierarchy, matching the DB structure (`sprints.project_id` → `epics.sprint_id` → `cards.epic_id`). The corrected schema is in `Skills.wiki/skills/dea-plan/skill.md`.
+
+**Field mapping** at ingestion (plan.md → DB):
+| plan.md field | DB column | Notes |
+|---------------|-----------|-------|
+| sprint/epic/card `id:` | `slug` | Also written to `plan_id` for upsert tracking |
+| sprint/epic `title` (heading) | `name` | Heading text, prefix stripped |
+| card `title` (heading) | `title` | |
+| `type`, `priority`, `effort`, `acceptance_criteria`, `depends_on` | `description` | Serialized as structured text; no separate DB columns |
+| `agent_role` | `assigned_agent_role` | Used by Sprint 3 `dea-hire` for Hirer dispatch |

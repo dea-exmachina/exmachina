@@ -4,6 +4,35 @@ The 13-step protocol that takes a problem from "George had a thought" to "the wo
 
 ---
 
+## Plan Lifecycle (pre-project layer)
+
+Plans are structured decomposition artifacts produced by `/dea-plan`. They exist above the project state machine — a plan produces the sprint/epic/card structure that seeds a project.
+
+### Plan states
+
+```
+draft → agent-reviewed → council-approved → ingested → archived
+```
+
+- `draft` — plan.md exists; `/dea-plan` conversation in progress
+- `agent-reviewed` — reviewer bender returned `approved: true`; `dea-plan` advanced status
+- `council-approved` — **George manually sets this** after Council session; the human gate
+- `ingested` — `/dea-ingest-plan` ran; epics/sprints/cards exist in DB; plan.md moved to archive
+- `archived` — plan superseded by a revised plan
+
+### Plan file location
+
+- Active: `<vault>/projects/<slug>/plans/<title>-plan.md`
+- Post-ingestion: `<vault>/projects/<slug>/plans/archive/<title>-plan.md`
+
+### Markdown ↔ DB sync for plans
+
+Plan content fields are markdown-owned. The DB row for each ingested sprint/epic/card has `plan_id` (the plan's slug) linking it back to the originating plan. The plan.md file itself is not stored as a DB row — it is a staging artifact that produces DB rows via `ingest_plan`.
+
+---
+
+---
+
 ## The 13 Steps
 
 | # | Step | Who acts | What lands |
@@ -106,6 +135,8 @@ Every field belongs to **either** the DB or the markdown — not both. No bidire
 - `scope`, `scoped_paths` (project-level)
 - `dispatch_id`, `council_review_id` linkages
 - `*_md_path` — the pointer to the markdown file
+- `plan_id` — the originating plan slug (set at ingestion; never changed)
+- `assigned_agent_role` (cards) — archetype from plan.md; set at ingestion
 - Timestamps and counters of any kind
 - Anything used in a query (filtering, sorting, indexing)
 
